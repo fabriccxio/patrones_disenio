@@ -1,0 +1,2 @@
+1-Cuando se crea el archivo que contiene las opciones del menu, si tienen lineas sin texto, no ejecuta.
+2-Si el dominio de la clase tiene espacion entre el separadpr (:::) y la misma, no encuentra la clase para ejecutar.

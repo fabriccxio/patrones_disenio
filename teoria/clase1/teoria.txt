@@ -1,0 +1,199 @@
+Patrones de diseño
+
+Ejercicio: Dado un prestamo, hacer en HTML un plan de pagos.
+El input del prestamo es: Monto, Interes, Cuotas.
+Les paso las formulas de los sistemas de Amortización.
+
+Frances. Lo hacemos a medias.
+Aleman. Es el mas simple.
+Americano. Aun mas simple.
+------------------------------------------------------------
+Ejercicio que vamos a hacer:
+
+Recorrer una base de datos, cada uno de los "contactos".
+Se los va a llamar con discador "fake". 
+InfoCall ic = discador.discar(nro);
+InfoCall 
+   onDisconnect();   
+   finalizar();
+------------------------------------------------------------
+Una idea es esperar un mail, hacer una especie de escaneo 
+del contenido, y si cumple con alguna consigna, disparar
+otro mail.
+------------------------------------------------------------
+
+Tema Maven
+
+En java y .net siempre trabajamos con dependencias o librerias.
+.jar o .dll segun la plataforma.
+en el caso de maven es un poco mas organizado que .net.
+
+<dependency>
+   <groupid>com.caidosdelcatre</groupid>
+   <artifactid>nombredll</artifactid>
+   <version></version>
+</dependency>
+
+mavencentral por default.
+
+------------------------------------------------------------
+                          S O L I D
+------------------------------------------------------------
+
+Que es un objeto: A nivel sintactico una instancia de una clase.
+                  Estructura de datos solo NO es un objeto.
+                  Solo comportamiento, sin estado. NO es un objeto.
+                  
+                  comportamiento + estado. SI
+                  
+                  java solo estrucutras de datos
+
+class Persona {
+   final String id;
+   final String nombre;
+
+   public Persona(String id, String nombre) {
+       this.id = id;
+       this.nombre = nombre;
+   }
+}
+
+Los value objets son inmutables, o pueden ser mutables.
+
+-------------------------------------------------------
+Herencia
+
+Cliente extends Persona {
+   public String idCliente;
+}
+
+Viene nuestro jefe entusiasmado
+-------------------------------------------------------
+El viejo libro del GOF Design patterns (NO LO LEAN)
+
+Preferir la composicion a la herencia.
+-------------------------------------------------------
+
+Tipos de herencia.
+
+1.- Herencia de tipos de datos: Cliente extends Persona N/A.
+    Cliente {
+       Persona p;
+       IdCliente
+    }
+
+2.- Herencia de interfaces. Es lo que mas vamos a utilizar.
+
+    player
+       play
+       pause
+       stop
+
+    Una clase abstracta, puede ser una interfaz.
+
+    El mejor ejemplo que conozcan de polimorfismo.
+    
+    JPA, JDBC Mejor de polimorfismo.    
+
+3.- Inversion de control
+
+    Servlet clasico. Todo el control lo hace tomcat.
+    Me llama a un metodo doPost (ejemplo) en el caso que se 
+    necesite, que coincida la url, que tenga la seguridad, etc
+    etc, etc.
+    
+    ASP.NET MVC implementar 
+
+-------------------------------------------------------
+Funciones puras QUE SON ?
+-------------------------------------------------------
+suma (2,3) -> 5
+     (1,4) -> 5
+     (5,6) -> 11
+
+Juegos se calcula al inicio todos los sen(x) -> en memoria.
+Es una operacion costosa, entonces me la saco de encima al 
+principio.
+
+Ejemplos. Todos los checksum. 
+
+En los 90 cuando pasabamos un archivo por red. bit de paridad.
+Sha1, Sha256, Sha512, Sha1024
+Md5
+
+Un Gyga resumirlo, hacer un checksum en 256 bits.
+
+Son funciones puras, pero infinitos inputs un output
+-------------------------------------------------------
+Lambda expression
+-------------------------------------------------------
+Las lamda puden ser puras, o no.
+
+un lambda puede hacer x -> System.Milliseconds + x
+-------------------------------------------------------
+Que importancia tiene aislar las funciones puras
+-------------------------------------------------------
+Unit Testing. HTTP, Acceso a Base, "p logica de m".
+
+Si es jueves, viernes y si es jubilado, y si tiene galicia, y 
+si ademas compro detergente, tiene un 10% descuento.
+
+-------------------------------------------------------
+                           M E N U 
+-------------------------------------------------------
+Interface ItemEjecutableMenu {}
+
+switch ()
+Elija 1
+   Realizo una accion
+   new EjemploMp3();
+Elija 2
+   Realizo una accion
+   new PiedraPapelTijera();
+Elija 3
+   Realizo una accion
+   new JuegoCasino();
+
+Modulo principal (MENU)
+
+
+Modulos secundarios que (EjemploMp3, PiedraPapelTijera, JuegoCasino).
+En el modulo principal, me quedaron 3 nombres.
+
+Menu necesita conocer a esos 3 componentes.
+Menu depende de 3 componentes.
+
+JuegoCasino implements itemEjecutableMenu
+   Fichas
+   Mesa
+   Estadisticas
+   Balances
+  
+   JuegoCasino Depende de 4 componentes.
+
+
+   MENU <--------MenuItemEjecutar--------> ItemEjecutableMenu
+
+   La D de S O L I D significa Inversion of Dependency
+   Los modulos en java/.net no deberian depende unos de otros
+   sino que ambos deben depende de una abstraccion.
+-------------------------------------------------------
+Sistema de notificacion de educacionIT
+-------------------------------------------------------
+   
+   Base de datos de alumnos,
+   Inscripciones
+   Pagos
+   Curso
+   Fechas de inicio
+   Logistica de aulas
+
+   Notificar "El dia tal, arranca el curso tal en el que estas
+   inscripto, bla bla bla ".
+ 
+   client -> interface -> patron
+   
+
+
+
+
