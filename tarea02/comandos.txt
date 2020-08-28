@@ -1,0 +1,5 @@
+path y comando para levantar el servidor
+~/bin$ java -jar bin/h2-1.4.200.jar -baseDir ~/tmp/h2dbs
+
+
+CREATE TABLE USER(id VARCHAR(255) PRIMARY KEY , nombre VARCHAR(255), apellido VARCHAR(255), auto VARCHAR(255) );
